@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia</title>
+</head>
+<body>
+    <h1>Visualizacion de Datos</h1>
+    <div id="datos-container"></div>
+    
+    <script>
+        //Usaremos AJAX para recuperar datos desde el servico web
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Manejar los datos recibidos (pueden ser JSON o XML)
+                var datos = JSON.parse(xhr.responseText);
+                mostrarDatosEnPagina(datos);
+            } else {
+                console.error('Error en la solicitud: ' + xhr.status);
+            }
+    };
+
+    xhr.open('GET', 'http://localhost:8080/Farmacia/api/ProController/ProBuscarTodos', true);
+    xhr.send();
+
+    function mostrarDatosEnPagina(datos) {
+      var container = document.getElementById('datos-container');
+      
+      container.innerHTML = '';
+
+    datos.forEach(function(producto) {
+    // Crear elementos HTML para mostrar cada producto
+    var productoDiv = document.createElement('div');
+    productoDiv.innerHTML = `
+      <p>ID: ${producto.id_P}</p>
+      <p>Marca: ${producto.marca}</p>
+      <p>Nombre: ${producto.nombre}</p>
+      <p>Precio: ${producto.precio}</p>
+    `;
+
+    // Agregar el elemento al contenedor
+    container.appendChild(productoDiv);
+    });
+    }
+    </script>
+</body>
+</html>

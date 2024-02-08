@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Farmacia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+</head>
+<body>
+   <div class="container mt-4 p-2 mb-5 bg-body rounded">
+        <nav>
+            <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+                <li class="nav-item" role="presentation">
+                    <a  href="index_Productos.html">
+                    <button type="button" class="nav-link rounded-5" id="home-tab2" data-bs-toggle="tab" role="tab" aria-selected="false">Productos</button>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a  href="index_Clientes.html">
+                    <button type="button" class="nav-link active rounded-5" id="profile-tab2" data-bs-toggle="tab" role="tab" aria-selected="true">Cliente</button>
+                    </a>
+                </li>
+                <!--
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Estadística</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Contactos</button>
+                </li>
+                -->
+          </ul>
+        </nav>
+        <h2 class="text-center">Farmacia INKA IHMA</h2>
+        <h1 class="text-center">Sistema de Vista de Clientes</h1>
+
+        <button id="btnCrear" type="button" class="btn btn-primary" data-bs-toggle="#modal">Nuevo Cliente</button>
+        <table id="tablaClientes" class="table mt-2 tabla-bordered table-striped">
+            <thead class="table-danger">
+                <tr class="text-center">
+                    <th>Dni</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Estado</th>
+                    <th>Id_Venta</th>
+                    <th colspan="2">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <footer class="text-light bg-dark">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a class="nav-link px-2" href="index_Productos.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link px-2" href="index_Clientes.html">Clientes</a></li>
+                <!-- 
+                <li class="nav-item"><a class="nav-link px-2" href="">Estadística</a></li>
+                <li class="nav-item"><a class="nav-link px-2" href="">Contactos</a></li> 
+                -->
+            </ul>
+            <p class="text-center">Farmacia INKA IHMA</p>
+        </footer>
+   </div> <!-- container div -->
+   <div id="modalCliente" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Nuevo Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> <!-- modal header div -->
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="dni" class="col-form-label">Dni:</label>
+                            <input type="text" class="form-control" id="dni">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="col-form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="apellido">
+                        </div>
+                        <div class="mb-3">
+                            <label for="estado" class="col-form-label">Estado:</label>
+                            <input type="text" class="form-control" id="estado">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_venta" class="col-form-label">Id de Venta:</label>
+                            <input type="text" class="form-control" id="id_venta">
+                        </div>
+                </div> <!-- modal body div -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+            </div> <!-- modal content div -->
+        </div> <!-- modal dialog div -->
+    </div> <!-- modal Cliente div -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="main_Cliente.js"></script>
+</body>
+</html>
